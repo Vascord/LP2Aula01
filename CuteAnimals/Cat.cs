@@ -10,7 +10,23 @@ namespace CuteAnimals
         private double _energy;
         private Moods _mood;
         private bool _alive;
-        public double Energy => _energy;
+        public double Energy 
+        { 
+            get => _energy;
+            
+            private set
+            {
+                _energy = value;
+                if(_energy > 100)
+                {
+                    _energy = 100;
+                }
+                else if (_energy < 0)
+                {
+                    _energy = 0;
+                }
+            } 
+        }
 
         public Cat(string name, Hunger hungry, double energy, Moods mood)
         {
@@ -29,15 +45,9 @@ namespace CuteAnimals
 
         public void Sleep()
         {
-        
-            _energy += 20; 
-            if(_energy > 100)
-            {
-                _energy = 100;
-            }
+            Energy += 10;
 
             _hungry --;
-
             if(_hungry < Hunger.Starving)
             {
                 _alive = false;
@@ -57,8 +67,8 @@ namespace CuteAnimals
         public void Play()
         {
             _mood = Moods.Happy;
-            _energy -= 20;
-            if(_energy < 30)
+            Energy -= 20;
+            if(Energy < 30)
             {
                 _mood = Moods.Grumpy;
             }
