@@ -12,7 +12,7 @@ namespace CuteAnimals
         private bool _alive;
         public double Energy => _energy;
 
-        private Cat(string name, Hunger hungry, double energy, Moods mood)
+        public Cat(string name, Hunger hungry, double energy, Moods mood)
         {
             this._name = name;
             this._hungry = hungry;
