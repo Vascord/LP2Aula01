@@ -10,13 +10,14 @@ namespace CuteAnimals
         private double _energy;
         private Moods _mood;
         private bool _alive;
+        public double Energy => _energy;
 
-        private Cat()
+        private Cat(string name, Hunger hungry, double energy, Moods mood)
         {
-            this._name = "Bababoi";
-            this._hungry = Hunger.Satisfied;
-            this._energy = 80;
-            this._mood = Moods.Happy;
+            this._name = name;
+            this._hungry = hungry;
+            this._energy = energy;
+            this._mood = mood;
             this._alive = true;
         }
 
